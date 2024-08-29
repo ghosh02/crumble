@@ -23,10 +23,21 @@ const Location = () => {
         <Text style={styles.loginButtonText}>Access location</Text>
         <Image source={require('../../assets/image/mappin.png')} />
       </TouchableOpacity>
-      <Text style={{textAlign: 'center', marginTop: 20, color: '#646982'}}>
+      <Text
+        style={{
+          textAlign: 'center',
+          marginTop: 20,
+          color: '#646982',
+          fontFamily: 'Sen-Regular',
+        }}>
         CRUMBLE WILL ACCESS YOUR
       </Text>
-      <Text style={{textAlign: 'center', color: '#646982'}}>
+      <Text
+        style={{
+          textAlign: 'center',
+          color: '#646982',
+          fontFamily: 'Sen-Regular',
+        }}>
         LOCATION ONLY WHILE USING THE APP
       </Text>
     </View>
@@ -49,7 +60,7 @@ const styles = StyleSheet.create({
   loginButtonText: {
     color: '#FFF',
     fontSize: 20,
-    fontWeight: 'bold',
+    fontFamily: 'Sen-Bold',
   },
 });
 

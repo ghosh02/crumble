@@ -10,7 +10,7 @@ const BackBtn = () => {
       style={{
         width: 45,
         height: 45,
-        backgroundColor: '#0000000d',
+        backgroundColor: '#ECF0F4',
         borderRadius: 45,
         alignItems: 'center',
         justifyContent: 'center',

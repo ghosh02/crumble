@@ -146,6 +146,7 @@ const styles = StyleSheet.create({
     padding: 10,
     color: '#FF7622',
     textAlign: 'center',
+    fontFamily: 'Sen-Bold',
   },
 });
 

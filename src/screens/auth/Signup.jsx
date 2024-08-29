@@ -58,10 +58,11 @@ const Signup = () => {
               height: 103,
             }}
           />
-          <Text style={{fontWeight: 700, fontSize: 30, color: '#FFF'}}>
+          <Text style={{fontFamily: 'Sen-Bold', fontSize: 30, color: '#FFF'}}>
             Sign up
           </Text>
-          <Text style={{fontWeight: 400, fontSize: 16, color: '#FFF'}}>
+          <Text
+            style={{fontFamily: 'Sen-Regular', fontSize: 16, color: '#FFF'}}>
             Please sign up to get started
           </Text>
         </View>
@@ -103,7 +104,7 @@ const Signup = () => {
             placeholder="Password"
             placeholderTextColor={'#676767'}
             secureTextEntry
-            style={{color: '#676767'}}
+            style={{color: '#676767', fontFamily: 'Sen-Regular'}}
             // style={styles.input}
           />
           <Image source={require('../../assets/image/eye.png')} />
@@ -123,7 +124,7 @@ const Signup = () => {
             placeholder="Re-type Password"
             placeholderTextColor={'#676767'}
             secureTextEntry
-            style={{color: '#676767'}}
+            style={{color: '#676767', fontFamily: 'Sen-Regular'}}
             // style={styles.input}
           />
           <Image source={require('../../assets/image/eye.png')} />
@@ -162,6 +163,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     color: '#676767',
     backgroundColor: '#F0F5FA',
+    fontFamily: 'Sen-Regular',
   },
   forgotPasswordContainer: {
     alignItems: 'flex-end',
@@ -181,7 +183,7 @@ const styles = StyleSheet.create({
   loginButtonText: {
     color: '#FFF',
     fontSize: 16,
-    fontWeight: 'bold',
+    fontFamily: 'Sen-Bold',
   },
   signUpContainer: {
     flexDirection: 'row',
@@ -196,6 +198,7 @@ const styles = StyleSheet.create({
     color: '#32343E',
     fontSize: 13,
     marginBottom: 8,
+    fontFamily: 'Sen-Regular',
   },
 });
 

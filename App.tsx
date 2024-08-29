@@ -1,7 +1,6 @@
 // In App.js in a new project
 
 import * as React from 'react';
-import {View, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LoaderScreen from './src/screens/auth/Loading';
@@ -17,6 +16,11 @@ import Details from './src/screens/landingpage/Details';
 import {Provider} from 'react-redux';
 import store from './src/store/store';
 import CartScreen from './src/screens/landingpage/CartScreen';
+import Payment from './src/screens/payment/Payment';
+import AddCardScreen from './src/screens/payment/AddCard';
+
+import PaymentSuccess from './src/screens/payment/PaymentSuccess';
+import MyOrdersScreen from './src/history/MyOrdersScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -36,6 +40,10 @@ function App() {
           <Stack.Screen name="SearchResult" component={SearchResult} />
           <Stack.Screen name="Details" component={Details} />
           <Stack.Screen name="CartScreen" component={CartScreen} />
+          <Stack.Screen name="Payment" component={Payment} />
+          <Stack.Screen name="AddCard" component={AddCardScreen} />
+          <Stack.Screen name="PaymentSuccess" component={PaymentSuccess} />
+          <Stack.Screen name="MyOrders" component={MyOrdersScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

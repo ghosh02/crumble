@@ -10,9 +10,10 @@ import {
   View,
 } from 'react-native';
 import BackBtn from '../../components/BackBtn';
-import Icon from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
 import Cart from '../../components/Cart';
+import {CloseIcon, SearchIcon} from '../../assets/Icon/IconName';
+
 const resturents = [
   {
     name: 'Pansi Restaurant',
@@ -53,7 +54,14 @@ const Search = () => {
       <View style={styles.headercontainer}>
         <View style={styles.header}>
           <BackBtn />
-          <Text style={{color: '#181C2E', fontSize: 17}}>Search</Text>
+          <Text
+            style={{
+              color: '#181C2E',
+              fontSize: 17,
+              fontFamily: 'Sen-Regular',
+            }}>
+            Search
+          </Text>
         </View>
         <Cart />
       </View>
@@ -61,7 +69,7 @@ const Search = () => {
         <View style={{width: '100%', alignItems: 'center'}}>
           <View style={styles.searchContainer}>
             <TouchableOpacity style={{width: '10%'}} onPress={handleSearch}>
-              <Image source={require('../../assets/image/Search.png')} />
+              <SearchIcon Color="#676767" />
             </TouchableOpacity>
             <View
               style={{
@@ -73,10 +81,12 @@ const Search = () => {
               }}>
               <TextInput
                 style={styles.input}
-                placeholderTextColor="gray"
+                placeholderTextColor="#676767"
                 placeholder="Search..."
                 value={searchTerm}
                 onChangeText={setSearchTerm}
+                autoFocus={true}
+                onSubmitEditing={handleSearch}
               />
               {searchTerm !== null ? (
                 <TouchableOpacity
@@ -91,7 +101,7 @@ const Search = () => {
                   onPress={() => {
                     setSearchTerm(null);
                   }}>
-                  <Image source={require('../../assets/image/close.png')} />
+                  <CloseIcon />
                 </TouchableOpacity>
               ) : (
                 ''
@@ -99,7 +109,13 @@ const Search = () => {
             </View>
           </View>
         </View>
-        <Text style={{fontSize: 20, color: '#32343E', marginTop: 24}}>
+        <Text
+          style={{
+            fontSize: 20,
+            color: '#32343E',
+            marginTop: 24,
+            fontFamily: 'Sen-Bold',
+          }}>
           Recent Keywords
         </Text>
         <ScrollView
@@ -120,7 +136,14 @@ const Search = () => {
                 borderWidth: 2,
                 borderRadius: 20,
               }}>
-              <Text style={{color: '#181C2E', fontSize: 16}}>{item}</Text>
+              <Text
+                style={{
+                  color: '#181C2E',
+                  fontSize: 16,
+                  fontFamily: 'Sen-Regular',
+                }}>
+                {item}
+              </Text>
             </TouchableOpacity>
           ))}
         </ScrollView>
@@ -130,6 +153,7 @@ const Search = () => {
             fontSize: 20,
             marginTop: 32,
             marginBottom: 20,
+            fontFamily: 'Sen-Regular',
           }}>
           Suggested Restaurants
         </Text>
@@ -147,13 +171,27 @@ const Search = () => {
               }}>
               <Image source={item.image} style={{borderRadius: 8}} />
               <View>
-                <Text style={{color: '#32343E', fontSize: 16}}>
+                <Text
+                  style={{
+                    color: '#32343E',
+                    fontSize: 16,
+                    fontFamily: 'Sen-Regular',
+                  }}>
                   {item.name}
                 </Text>
                 <View
-                  style={{flexDirection: 'row', alignItems: 'center', gap: 5}}>
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    gap: 5,
+                  }}>
                   <Image source={require('../../assets/image/Star1.png')} />
-                  <Text style={{color: '#181C2E', fontSize: 16}}>
+                  <Text
+                    style={{
+                      color: '#181C2E',
+                      fontSize: 16,
+                      fontFamily: 'Sen-Regular',
+                    }}>
                     {item.rating}
                   </Text>
                 </View>
@@ -161,7 +199,13 @@ const Search = () => {
             </TouchableOpacity>
           ))}
         </View>
-        <Text style={{fontSize: 20, color: '#181C2E', marginTop: 32}}>
+        <Text
+          style={{
+            fontSize: 20,
+            color: '#181C2E',
+            marginTop: 32,
+            fontFamily: 'Sen-Regular',
+          }}>
           Popular Fast food
         </Text>
         <ScrollView
@@ -209,13 +253,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 10,
     marginTop: 24,
-    // shadowColor: '#000',
-    // elevation: 5,
   },
   input: {
     color: '#000',
-    width: '82%',
-    // height: 40,
+    width: '85%',
+    fontSize: 17,
+    fontFamily: 'Sen-Regular',
+    color: '#676767',
   },
 });
 

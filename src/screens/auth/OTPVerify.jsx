@@ -51,7 +51,6 @@ const OTPVerify = () => {
             height: 40,
             backgroundColor: '#fff',
             borderRadius: 10,
-            // top: 70,
             marginLeft: 20,
             alignItems: 'center',
             justifyContent: 'center',
@@ -76,13 +75,14 @@ const OTPVerify = () => {
               width: '100%',
               paddingHorizontal: 26,
             }}>
-            <Text style={{color: 'black', fontWeight: 700, fontSize: 37}}>
+            <Text
+              style={{color: 'black', fontFamily: 'Sen-Bold', fontSize: 37}}>
               Verification Code
             </Text>
             <Text
               style={{
                 color: '#9796A1',
-                fontWeight: 400,
+                fontFamily: 'Sen-Regular',
                 fontSize: 14,
                 marginTop: 12,
               }}>
@@ -91,7 +91,7 @@ const OTPVerify = () => {
             <Text
               style={{
                 color: '#9796A1',
-                fontWeight: 400,
+                fontFamily: 'Sen-Regular',
                 fontSize: 14,
                 marginTop: 6,
               }}>
@@ -100,12 +100,18 @@ const OTPVerify = () => {
           </View>
           <CustomOTPFleld page={'Location'} />
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            <Text style={{fontSize: 16, fontWeight: 700, color: '#5B5B5E'}}>
+            <Text
+              style={{fontSize: 16, fontFamily: 'Sen-Bold', color: '#5B5B5E'}}>
               I don't recevie a code!{' '}
             </Text>
 
             <TouchableOpacity>
-              <Text style={{color: '#FF7622', fontSize: 16, fontWeight: 700}}>
+              <Text
+                style={{
+                  color: '#FF7622',
+                  fontSize: 16,
+                  fontFamily: 'Sen-Bold',
+                }}>
                 Please resend
               </Text>
             </TouchableOpacity>

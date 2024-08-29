@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Cart from '../../components/Cart';
+import {SearchIcon} from '../../assets/Icon/IconName';
 
 const Home = () => {
   const navigation = useNavigation();
@@ -52,10 +53,16 @@ const Home = () => {
             <Image source={require('../../assets/image/bell.png')} />
           </View>
           <View>
-            <Text style={{color: '#FF7622', fontSize: 12, fontWeight: 700}}>
+            <Text
+              style={{color: '#FF7622', fontSize: 12, fontFamily: 'Sen-Bold'}}>
               DELIVERED TO
             </Text>
-            <Text style={{color: '#676767', fontSize: 12, fontWeight: 400}}>
+            <Text
+              style={{
+                color: '#676767',
+                fontSize: 12,
+                fontFamily: 'Sen-Regular',
+              }}>
               KOLKATA
             </Text>
           </View>
@@ -65,10 +72,12 @@ const Home = () => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View
           style={{flexDirection: 'row', alignItems: 'center', paddingTop: 24}}>
-          <Text style={{color: '#321B1C', fontSize: 16, fontWeight: 400}}>
+          <Text
+            style={{color: '#321B1C', fontSize: 16, fontFamily: 'Sen-Regular'}}>
             Hey Sudip,{' '}
           </Text>
-          <Text style={{color: '#321B1C', fontSize: 16, fontWeight: 700}}>
+          <Text
+            style={{color: '#321B1C', fontSize: 16, fontFamily: 'Sen-Bold'}}>
             Good Afternoon!
           </Text>
         </View>
@@ -77,8 +86,10 @@ const Home = () => {
             navigation.navigate('Search');
           }}
           style={styles.searchContainer}>
-          <Image source={require('../../assets/image/Search.png')} />
-          <Text style={{color: '#676767'}}>Search snacks, food</Text>
+          <SearchIcon Color="#676767" />
+          <Text style={{color: '#676767', fontFamily: 'Sen-Regular'}}>
+            Search snacks, food
+          </Text>
         </TouchableOpacity>
         <ScrollView
           contentContainerStyle={{
@@ -104,7 +115,12 @@ const Home = () => {
               <View style={styles.fooditem}>
                 <Image source={item.image} />
               </View>
-              <Text style={{color: '#FA8700', fontSize: 12, fontWeight: 500}}>
+              <Text
+                style={{
+                  color: '#FA8700',
+                  fontSize: 12,
+                  fontFamily: 'Sen-Regular',
+                }}>
                 {item.name}
               </Text>
             </TouchableOpacity>
@@ -114,7 +130,7 @@ const Home = () => {
           style={{
             color: '#000',
             fontSize: 20,
-            fontWeight: 700,
+            fontFamily: 'Sen-Bold',
             marginVertical: 24,
           }}>
           Special offer
@@ -131,13 +147,15 @@ const Home = () => {
             gap: 20,
           }}>
           <View style={styles.cake}>
-            <Text style={{color: '#000', fontSize: 12, fontWeight: 400}}>
+            <Text
+              style={{color: '#000', fontSize: 12, fontFamily: 'Sen-Regular'}}>
               Regular Cake
             </Text>
             <Image source={require('../../assets/image/regularcake.png')} />
           </View>
           <View style={[styles.cake, {width: 135}]}>
-            <Text style={{color: '#000', fontSize: 12, fontWeight: 400}}>
+            <Text
+              style={{color: '#000', fontSize: 12, fontFamily: 'Sen-Regular'}}>
               Gifts
             </Text>
             <Image source={require('../../assets/image/gifts.png')} />
@@ -163,7 +181,12 @@ const Home = () => {
                 elevation: 5,
               }}
               key={index}>
-              <Text style={{color: '#FA8700', fontSize: 12, fontWeight: 400}}>
+              <Text
+                style={{
+                  color: '#FA8700',
+                  fontSize: 12,
+                  fontFamily: 'Sen-Regular',
+                }}>
                 {item.name}
               </Text>
               <View style={styles.fooditem}>
@@ -182,7 +205,7 @@ const Home = () => {
             style={{
               color: '#000',
               fontSize: 20,
-              fontWeight: 700,
+              fontFamily: 'Sen-Bold',
               marginVertical: 16,
             }}>
             Discount guaranteed!
@@ -212,7 +235,11 @@ const Home = () => {
                       backgroundColor: '#332C45',
                     }}>
                     <Text
-                      style={{color: '#fff', fontSize: 12, fontWeight: 400}}>
+                      style={{
+                        color: '#fff',
+                        fontSize: 12,
+                        fontFamily: 'Sen-Regular',
+                      }}>
                       4% off your order
                     </Text>
                   </View>
@@ -227,7 +254,11 @@ const Home = () => {
                       backgroundColor: '#332C45',
                     }}>
                     <Text
-                      style={{color: '#fff', fontSize: 12, fontWeight: 400}}>
+                      style={{
+                        color: '#fff',
+                        fontSize: 12,
+                        fontFamily: 'Sen-Regular',
+                      }}>
                       4% off your order
                     </Text>
                   </View>
@@ -236,7 +267,7 @@ const Home = () => {
                   style={{
                     color: '#212121',
                     fontSize: 18,
-                    fontWeight: 600,
+                    fontFamily: 'Sen-Bold',
                     marginTop: 6,
                   }}>
                   Brick coffee
@@ -248,7 +279,7 @@ const Home = () => {
                     justifyContent: 'space-between',
                   }}>
                   <View style={{flexDirection: 'row', gap: 10}}>
-                    <Text style={{color: '#78828A', fontWeight: 700}}>
+                    <Text style={{color: '#78828A', fontFamily: 'Sen-Bold'}}>
                       1.5 km |
                     </Text>
                     <View
@@ -258,7 +289,7 @@ const Home = () => {
                         gap: 5,
                       }}>
                       <Image source={require('../../assets/image/Star.png')} />
-                      <Text style={{color: '#78828A', fontWeight: 700}}>
+                      <Text style={{color: '#78828A', fontFamily: 'Sen-Bold'}}>
                         4.5 (1.2k)
                       </Text>
                     </View>
@@ -283,7 +314,7 @@ const Home = () => {
             style={{
               color: '#171725',
               fontSize: 20,
-              fontWeight: 700,
+              fontFamily: 'Sen-Bold',
               marginVertical: 16,
             }}>
             What's delicious around here?
@@ -311,7 +342,11 @@ const Home = () => {
                       backgroundColor: '#332C45',
                     }}>
                     <Text
-                      style={{color: '#fff', fontSize: 12, fontWeight: 400}}>
+                      style={{
+                        color: '#fff',
+                        fontSize: 12,
+                        fontFamily: 'Sen-Regular',
+                      }}>
                       4% off your order
                     </Text>
                   </View>
@@ -326,7 +361,11 @@ const Home = () => {
                       backgroundColor: '#332C45',
                     }}>
                     <Text
-                      style={{color: '#fff', fontSize: 12, fontWeight: 400}}>
+                      style={{
+                        color: '#fff',
+                        fontSize: 12,
+                        fontFamily: 'Sen-Regular',
+                      }}>
                       4% off your order
                     </Text>
                   </View>
@@ -335,7 +374,7 @@ const Home = () => {
                   style={{
                     color: '#212121',
                     fontSize: 18,
-                    fontWeight: 600,
+                    fontFamily: 'Sen-Bold',
                     marginTop: 6,
                   }}>
                   Quasa
@@ -347,7 +386,7 @@ const Home = () => {
                     justifyContent: 'space-between',
                   }}>
                   <View style={{flexDirection: 'row', gap: 10}}>
-                    <Text style={{color: '#78828A', fontWeight: 700}}>
+                    <Text style={{color: '#78828A', fontFamily: 'Sen-Bold'}}>
                       1.5 km |
                     </Text>
                     <View
@@ -357,7 +396,7 @@ const Home = () => {
                         gap: 5,
                       }}>
                       <Image source={require('../../assets/image/Star.png')} />
-                      <Text style={{color: '#78828A', fontWeight: 700}}>
+                      <Text style={{color: '#78828A', fontFamily: 'Sen-Bold'}}>
                         4.5 (1.2k)
                       </Text>
                     </View>
@@ -380,19 +419,19 @@ const Home = () => {
           }}>
           <View>
             <Image source={require('../../assets/image/cukiernia.png')} />
-            <Text style={{fontWeight: 700, color: '#000', fontSize: 16}}>
+            <Text style={{fontFamily: 'Sen-Bold', color: '#000', fontSize: 16}}>
               Cukiernia soa
             </Text>
           </View>
           <View>
             <Image source={require('../../assets/image/cukiernia.png')} />
-            <Text style={{fontWeight: 700, color: '#000', fontSize: 16}}>
+            <Text style={{fontFamily: 'Sen-Bold', color: '#000', fontSize: 16}}>
               Cukiernia soa
             </Text>
           </View>
           <View>
             <Image source={require('../../assets/image/cukiernia.png')} />
-            <Text style={{fontWeight: 700, color: '#000', fontSize: 16}}>
+            <Text style={{fontFamily: 'Sen-Bold', color: '#000', fontSize: 16}}>
               Cukiernia soa
             </Text>
           </View>
@@ -407,7 +446,7 @@ const Home = () => {
             style={{
               color: '#171725',
               fontSize: 20,
-              fontWeight: 700,
+              fontFamily: 'Sen-Bold',
               marginVertical: 16,
             }}>
             Highlights of March
@@ -435,7 +474,11 @@ const Home = () => {
                       backgroundColor: '#332C45',
                     }}>
                     <Text
-                      style={{color: '#fff', fontSize: 12, fontWeight: 400}}>
+                      style={{
+                        color: '#fff',
+                        fontSize: 12,
+                        fontFamily: 'Sen-Regular',
+                      }}>
                       4% off your order
                     </Text>
                   </View>
@@ -450,7 +493,11 @@ const Home = () => {
                       backgroundColor: '#332C45',
                     }}>
                     <Text
-                      style={{color: '#fff', fontSize: 12, fontWeight: 400}}>
+                      style={{
+                        color: '#fff',
+                        fontSize: 12,
+                        fontFamily: 'Sen-Regular',
+                      }}>
                       4% off your order
                     </Text>
                   </View>
@@ -459,7 +506,7 @@ const Home = () => {
                   style={{
                     color: '#212121',
                     fontSize: 18,
-                    fontWeight: 600,
+                    fontFamily: 'Sen-Bold',
                     marginTop: 6,
                   }}>
                   Manekin
@@ -471,7 +518,7 @@ const Home = () => {
                     justifyContent: 'space-between',
                   }}>
                   <View style={{flexDirection: 'row', gap: 10}}>
-                    <Text style={{color: '#78828A', fontWeight: 700}}>
+                    <Text style={{color: '#78828A', fontFamily: 'Sen-Bold'}}>
                       1.5 km |
                     </Text>
                     <View
@@ -481,7 +528,7 @@ const Home = () => {
                         gap: 5,
                       }}>
                       <Image source={require('../../assets/image/Star.png')} />
-                      <Text style={{color: '#78828A', fontWeight: 700}}>
+                      <Text style={{color: '#78828A', fontFamily: 'Sen-Bold'}}>
                         4.5 (1.2k)
                       </Text>
                     </View>
@@ -503,7 +550,7 @@ const Home = () => {
             style={{
               color: '#171725',
               fontSize: 20,
-              fontWeight: 700,
+              fontFamily: 'Sen-Bold',
               marginVertical: 16,
             }}>
             Nearby Restaurants
@@ -527,7 +574,7 @@ const Home = () => {
                   style={{
                     color: '#111111',
                     fontSize: 18,
-                    fontWeight: 600,
+                    fontFamily: 'Sen-Bold',
                     marginTop: 6,
                   }}>
                   Elisandra Restaurant
@@ -539,7 +586,7 @@ const Home = () => {
                     gap: 6,
                   }}>
                   <Image source={require('../../assets/image/location.png')} />
-                  <Text style={{color: '#66707A', fontWeight: 700}}>
+                  <Text style={{color: '#66707A', fontFamily: 'Sen-Bold'}}>
                     Elisandra Restaurant
                   </Text>
                 </View>
@@ -557,7 +604,7 @@ const Home = () => {
             style={{
               color: '#171725',
               fontSize: 20,
-              fontWeight: 700,
+              fontFamily: 'Sen-Bold',
               marginVertical: 16,
             }}>
             Recommended For You
@@ -575,7 +622,12 @@ const Home = () => {
                 borderRadius: 30,
                 backgroundColor: '#332C45',
               }}>
-              <Text style={{color: '#fff', fontSize: 12, fontWeight: 400}}>
+              <Text
+                style={{
+                  color: '#fff',
+                  fontSize: 12,
+                  fontFamily: 'Sen-Regular',
+                }}>
                 4% off your order
               </Text>
             </View>
@@ -589,7 +641,12 @@ const Home = () => {
                 borderRadius: 30,
                 backgroundColor: '#332C45',
               }}>
-              <Text style={{color: '#fff', fontSize: 12, fontWeight: 400}}>
+              <Text
+                style={{
+                  color: '#fff',
+                  fontSize: 12,
+                  fontFamily: 'Sen-Regular',
+                }}>
                 4% off your order
               </Text>
             </View>
@@ -601,7 +658,7 @@ const Home = () => {
                 paddingTop: 18,
                 color: '#212121',
                 fontSize: 16,
-                fontWeight: 700,
+                fontFamily: 'Sen-Bold',
               }}>
               Cedric Grolet Cafe
             </Text>
@@ -614,7 +671,7 @@ const Home = () => {
                 paddingHorizontal: 10,
               }}>
               <View style={{flexDirection: 'row', gap: 10}}>
-                <Text style={{color: '#78828A', fontWeight: 700}}>
+                <Text style={{color: '#78828A', fontFamily: 'Sen-Bold'}}>
                   1.5 km |
                 </Text>
                 <View
@@ -624,7 +681,7 @@ const Home = () => {
                     gap: 5,
                   }}>
                   <Image source={require('../../assets/image/Star.png')} />
-                  <Text style={{color: '#78828A', fontWeight: 700}}>
+                  <Text style={{color: '#78828A', fontFamily: 'Sen-Bold'}}>
                     4.5 (1.2k)
                   </Text>
                 </View>
@@ -646,7 +703,12 @@ const Home = () => {
                 borderRadius: 30,
                 backgroundColor: '#332C45',
               }}>
-              <Text style={{color: '#fff', fontSize: 12, fontWeight: 400}}>
+              <Text
+                style={{
+                  color: '#fff',
+                  fontSize: 12,
+                  fontFamily: 'Sen-Regular',
+                }}>
                 4% off your order
               </Text>
             </View>
@@ -660,7 +722,12 @@ const Home = () => {
                 borderRadius: 30,
                 backgroundColor: '#332C45',
               }}>
-              <Text style={{color: '#fff', fontSize: 12, fontWeight: 400}}>
+              <Text
+                style={{
+                  color: '#fff',
+                  fontSize: 12,
+                  fontFamily: 'Sen-Regular',
+                }}>
                 4% off your order
               </Text>
             </View>
@@ -672,7 +739,7 @@ const Home = () => {
                 paddingTop: 18,
                 color: '#212121',
                 fontSize: 16,
-                fontWeight: 700,
+                fontFamily: 'Sen-Bold',
               }}>
               Cedric Grolet Cafe
             </Text>
@@ -685,7 +752,7 @@ const Home = () => {
                 paddingHorizontal: 10,
               }}>
               <View style={{flexDirection: 'row', gap: 10}}>
-                <Text style={{color: '#78828A', fontWeight: 700}}>
+                <Text style={{color: '#78828A', fontFamily: 'Sen-Bold'}}>
                   1.5 km |
                 </Text>
                 <View
@@ -695,7 +762,7 @@ const Home = () => {
                     gap: 5,
                   }}>
                   <Image source={require('../../assets/image/Star.png')} />
-                  <Text style={{color: '#78828A', fontWeight: 700}}>
+                  <Text style={{color: '#78828A', fontFamily: 'Sen-Bold'}}>
                     4.5 (1.2k)
                   </Text>
                 </View>
@@ -717,7 +784,12 @@ const Home = () => {
                 borderRadius: 30,
                 backgroundColor: '#332C45',
               }}>
-              <Text style={{color: '#fff', fontSize: 12, fontWeight: 400}}>
+              <Text
+                style={{
+                  color: '#fff',
+                  fontSize: 12,
+                  fontFamily: 'Sen-Regular',
+                }}>
                 4% off your order
               </Text>
             </View>
@@ -731,7 +803,12 @@ const Home = () => {
                 borderRadius: 30,
                 backgroundColor: '#332C45',
               }}>
-              <Text style={{color: '#fff', fontSize: 12, fontWeight: 400}}>
+              <Text
+                style={{
+                  color: '#fff',
+                  fontSize: 12,
+                  fontFamily: 'Sen-Regular',
+                }}>
                 4% off your order
               </Text>
             </View>
@@ -743,7 +820,7 @@ const Home = () => {
                 paddingTop: 18,
                 color: '#212121',
                 fontSize: 16,
-                fontWeight: 700,
+                fontFamily: 'Sen-Bold',
               }}>
               Cedric Grolet Cafe
             </Text>

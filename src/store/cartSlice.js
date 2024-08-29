@@ -1,4 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
+import {addOrderToOngoing} from './ongoingOrdersSlice';
 
 const initialState = {
   cartItems: [],
@@ -36,10 +37,32 @@ const cartSlice = createSlice({
         state.totalAmount += existingItem.price * quantity;
       }
     },
+    clearCart: state => {
+      state.cartItems = [];
+      state.totalAmount = 0;
+    },
   },
 });
 
-export const {addItemToCart, removeItemFromCart, updateItemQuantity} =
-  cartSlice.actions;
+export const confirmOrderAndClearCart = () => (dispatch, getState) => {
+  const {cartItems} = getState().cart;
+  const order = {
+    id: new Date().getTime().toString(),
+    items: cartItems,
+    amount: getState().cart.totalAmount,
+    date: new Date().toISOString(),
+    status: 'ongoing',
+  };
+
+  dispatch(addOrderToOngoing(order));
+  dispatch(clearCart());
+};
+
+export const {
+  addItemToCart,
+  removeItemFromCart,
+  updateItemQuantity,
+  clearCart,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;

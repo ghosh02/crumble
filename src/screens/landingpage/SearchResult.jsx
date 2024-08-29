@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Image,
   ScrollView,
@@ -9,35 +9,68 @@ import {
 } from 'react-native';
 import BackBtn from '../../components/BackBtn';
 import {useNavigation} from '@react-navigation/native';
+import FilterPage from './Filter';
+import {SearchIcon} from '../../assets/Icon/IconName';
 
 const searchResult = [
   {
+    category: 'Food',
     name: 'Sandwich Bistro',
     resturant: 'Rose garden',
     price: 100,
+    sizes: [
+      {size: '14"', price: 50},
+      {size: '16"', price: 80},
+      {size: '18"', price: 100},
+    ],
     image: require('../../assets/image/sandwichimg.png'),
   },
   {
+    category: 'Food',
     name: 'Smokin Sandwich',
     resturant: 'Rose garden',
     price: 40,
+    sizes: [
+      {size: '14"', price: 50},
+      {size: '16"', price: 80},
+      {size: '18"', price: 100},
+    ],
     image: require('../../assets/image/sandwichimg.png'),
   },
   {
+    category: 'Food',
     name: 'Buffalo Sandwich',
     resturant: 'Rose garden',
     price: 60,
+    sizes: [
+      {size: '14"', price: 50},
+      {size: '16"', price: 80},
+      {size: '18"', price: 100},
+    ],
     image: require('../../assets/image/sandwichimg.png'),
   },
   {
+    category: 'Food',
     name: 'Bullseye Sandwich',
     resturant: 'Rose garden',
     price: 80,
+    sizes: [
+      {size: '14"', price: 50},
+      {size: '16"', price: 80},
+      {size: '18"', price: 100},
+    ],
     image: require('../../assets/image/sandwichimg.png'),
   },
 ];
 const SearchResult = () => {
   const navigation = useNavigation();
+  const [modalVisible, setModalVisible] = useState(false);
+  const [scrollEnabled, setScrollEnabled] = useState(true);
+
+  const toggleModal = () => {
+    setModalVisible(!modalVisible);
+    setScrollEnabled(modalVisible); // Disable scroll when modal is visible
+  };
   return (
     <View style={styles.container}>
       <View style={styles.headercontainer}>
@@ -59,7 +92,7 @@ const SearchResult = () => {
                 color: '#181C2E',
                 fontSize: 10,
                 borderRadius: 18,
-                fontWeight: 700,
+                fontFamily: 'Sen-Bold',
               }}>
               SANDWICH
             </Text>
@@ -68,15 +101,24 @@ const SearchResult = () => {
         </View>
         <View style={{flexDirection: 'row', alignItems: 'center', gap: 10}}>
           <View style={styles.cart}>
-            <Image source={require('../../assets/image/Search.png')} />
+            <SearchIcon size={23} />
           </View>
-          <View style={[styles.cart, {backgroundColor: '#ECF0F4'}]}>
+          <TouchableOpacity
+            onPress={toggleModal}
+            style={[styles.cart, {backgroundColor: '#ECF0F4'}]}>
             <Image source={require('../../assets/image/filter.png')} />
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
+      <FilterPage modalVisible={modalVisible} toggleModal={toggleModal} />
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Text style={{color: '#32343E', fontSize: 20, marginTop: 24}}>
+        <Text
+          style={{
+            color: '#32343E',
+            fontSize: 20,
+            marginTop: 24,
+            fontFamily: 'Sen-Regular',
+          }}>
           Popular Sandwich
         </Text>
         <View
@@ -111,10 +153,20 @@ const SearchResult = () => {
                   paddingBottom: 10,
                   borderRadius: 15,
                 }}>
-                <Text style={{color: '#32343E', fontWeight: 700, fontSize: 15}}>
+                <Text
+                  style={{
+                    color: '#32343E',
+                    fontFamily: 'Sen-Bold',
+                    fontSize: 15,
+                  }}>
                   {item.name}
                 </Text>
-                <Text style={{color: '#646982', fontSize: 13}}>
+                <Text
+                  style={{
+                    color: '#646982',
+                    fontSize: 13,
+                    fontFamily: 'Sen-Regular',
+                  }}>
                   {item.resturant}
                 </Text>
                 <View
@@ -124,7 +176,11 @@ const SearchResult = () => {
                     justifyContent: 'space-between',
                   }}>
                   <Text
-                    style={{color: '#32343E', fontWeight: 700, fontSize: 16}}>
+                    style={{
+                      color: '#32343E',
+                      fontFamily: 'Sen-Bold',
+                      fontSize: 16,
+                    }}>
                     $ {item.price}
                   </Text>
                   <View
@@ -149,6 +205,7 @@ const SearchResult = () => {
             fontSize: 20,
             marginTop: 32,
             marginBottom: 16,
+            fontFamily: 'Sen-Regular',
           }}>
           Open Resturants
         </Text>

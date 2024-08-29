@@ -1,6 +1,10 @@
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {removeItemFromCart, updateItemQuantity} from '../../store/cartSlice';
+import {
+  removeItemFromCart,
+  updateItemQuantity,
+  confirmOrderAndClearCart,
+} from '../../store/cartSlice';
 import {
   Image,
   Platform,
@@ -11,8 +15,11 @@ import {
   View,
 } from 'react-native';
 import BackBtn from '../../components/BackBtn';
+import {CloseIcon, RightIcon} from '../../assets/Icon/IconName';
+import {useNavigation} from '@react-navigation/native';
 
 const CartScreen = () => {
+  const navigate = useNavigation();
   const dispatch = useDispatch();
   const cartItems = useSelector(state => state.cart.cartItems);
   const totalAmount = useSelector(state => state.cart.totalAmount);
@@ -32,7 +39,11 @@ const CartScreen = () => {
     }
     dispatch(updateItemQuantity({id, quantity: newQuantity}));
   };
-
+  const ongoingOrders = useSelector(state => state.ongoingOrders);
+  console.log(ongoingOrders);
+  const handlePlaceOrder = () => {
+    navigate.navigate('Payment'); // Navigate to the ongoing orders screen after placing the order
+  };
   return (
     <View style={styles.container}>
       <View
@@ -45,7 +56,13 @@ const CartScreen = () => {
         }}>
         <View style={{flexDirection: 'row', alignItems: 'center', gap: 18}}>
           <BackBtn />
-          <Text style={{color: '#000', fontSize: 17, lineHeight: 22}}>
+          <Text
+            style={{
+              color: '#000',
+              fontSize: 17,
+              lineHeight: 22,
+              fontFamily: 'Sen-Regular',
+            }}>
             Cart
           </Text>
         </View>
@@ -55,6 +72,7 @@ const CartScreen = () => {
               style={{
                 color: isEditing ? '#059C6A' : '#FF7622',
                 borderBottomWidth: 1,
+                fontFamily: 'Sen-Regular',
                 borderColor: isEditing ? '#059C6A' : '#FF7622',
               }}>
               {isEditing ? 'DONE' : 'EDIT ITEMS'}
@@ -66,7 +84,8 @@ const CartScreen = () => {
       </View>
       {cartItems.length === 0 ? (
         <View style={styles.emptyCart}>
-          <Text style={{fontSize: 20, color: '#000', fontWeight: 500}}>
+          <Text
+            style={{fontSize: 20, color: '#000', fontFamily: 'Sen-Regular'}}>
             Your cart is empty
           </Text>
         </View>
@@ -90,6 +109,7 @@ const CartScreen = () => {
                         width: '100%',
                         fontSize: 18,
                         color: '#000',
+                        fontFamily: 'Sen-Regular',
                       }}>
                       {item.name}
                     </Text>
@@ -97,16 +117,14 @@ const CartScreen = () => {
                       <TouchableOpacity
                         style={styles.close}
                         onPress={() => handleRemoveItem(item.id)}>
-                        <Image
-                          source={require('../../assets/image/close.png')}
-                        />
+                        <CloseIcon />
                       </TouchableOpacity>
                     )}
                   </View>
                   <Text
                     style={{
                       fontSize: 20,
-                      fontWeight: 'bold',
+                      fontFamily: 'Sen-Bold',
                       color: '#000',
                       marginVertical: 10,
                     }}>
@@ -118,7 +136,12 @@ const CartScreen = () => {
                       alignItems: 'center',
                       justifyContent: 'space-between',
                     }}>
-                    <Text style={{fontSize: 18, color: '#808080'}}>
+                    <Text
+                      style={{
+                        fontSize: 18,
+                        color: '#808080',
+                        fontFamily: 'Sen-Regular',
+                      }}>
                       {item.size}
                     </Text>
                     <View style={styles.quantityControl}>
@@ -154,7 +177,13 @@ const CartScreen = () => {
                 alignItems: 'center',
                 justifyContent: 'space-between',
               }}>
-              <Text style={{color: '#A0A5BA', fontSize: 14, lineHeight: 24}}>
+              <Text
+                style={{
+                  color: '#A0A5BA',
+                  fontSize: 14,
+                  lineHeight: 24,
+                  fontFamily: 'Sen-Regular',
+                }}>
                 DELIVERY ADDRESS
               </Text>
               <Text
@@ -162,6 +191,7 @@ const CartScreen = () => {
                   textDecorationLine: 'underline',
                   textDecorationColor: '#FF7622',
                   color: '#FF7622',
+                  fontFamily: 'Sen-Regular',
                 }}>
                 EDIT
               </Text>
@@ -177,7 +207,13 @@ const CartScreen = () => {
                 marginTop: 10,
                 marginBottom: 30,
               }}>
-              <Text style={{color: '#91959C', fontSize: 16, lineHeight: 20}}>
+              <Text
+                style={{
+                  color: '#91959C',
+                  fontSize: 16,
+                  lineHeight: 20,
+                  fontFamily: 'Sen-Regular',
+                }}>
                 2118 Thornridge Cir. Syracuse
               </Text>
             </View>
@@ -190,21 +226,33 @@ const CartScreen = () => {
               }}>
               <View
                 style={{flexDirection: 'row', alignItems: 'center', gap: 5}}>
-                <Text style={{color: '#A0A5BA'}}>TOTAL:</Text>
-                <Text style={{color: '#181C2E', fontSize: 25}}>
+                <Text style={{color: '#A0A5BA', fontFamily: 'Sen-Regular'}}>
+                  TOTAL:{' '}
+                </Text>
+                <Text
+                  style={{
+                    color: '#181C2E',
+                    fontSize: 25,
+                    fontFamily: 'Sen-Regular',
+                  }}>
                   ${totalAmount.toFixed(2)}
                 </Text>
               </View>
               <View
                 style={{flexDirection: 'row', alignItems: 'center', gap: 5}}>
-                <Text style={{color: '#FF7622'}}>breakdown:</Text>
-                <Image source={require('../../assets/image/arrow-right.png')} />
+                <Text style={{color: '#FF7622', fontFamily: 'Sen-Regular'}}>
+                  breakdown:
+                </Text>
+                <RightIcon />
               </View>
             </View>
             <TouchableOpacity
-              //   onPress={handleAddToCart}
+              // onPress={() => {
+              //   navigate.navigate('Payment');
+              // }}
+              onPress={handlePlaceOrder}
               style={styles.addToCartButton}>
-              <Text style={styles.addToCartText}>ADD TO CART</Text>
+              <Text style={styles.addToCartText}>PLACE ORDER</Text>
             </TouchableOpacity>
           </View>
         </>
@@ -257,7 +305,7 @@ const styles = StyleSheet.create({
 
   quantityText: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontFamily: 'Sen-Bold',
     color: '#000',
   },
   close: {
@@ -289,7 +337,7 @@ const styles = StyleSheet.create({
   addToCartText: {
     color: '#fff',
     fontSize: 18,
-    fontWeight: 'bold',
+    fontFamily: 'Sen-Bold',
   },
 });
 

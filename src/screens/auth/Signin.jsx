@@ -42,10 +42,11 @@ const Signin = () => {
               height: 103,
             }}
           />
-          <Text style={{fontWeight: 700, fontSize: 30, color: '#FFF'}}>
+          <Text style={{fontFamily: 'Sen-Bold', fontSize: 30, color: '#FFF'}}>
             Log in
           </Text>
-          <Text style={{fontWeight: 400, fontSize: 16, color: '#FFF'}}>
+          <Text
+            style={{fontFamily: 'Sen-Regular', fontSize: 16, color: '#FFF'}}>
             Please sign in to your existing account
           </Text>
         </View>
@@ -97,10 +98,14 @@ const Signin = () => {
                 borderRadius: 3,
               }}
             />
-            <Text style={{color: '#7E8A97'}}>Remember me</Text>
+            <Text style={{color: '#7E8A97', fontFamily: 'Sen-Regular'}}>
+              Remember me
+            </Text>
           </View>
           <TouchableOpacity>
-            <Text style={{color: '#FF7622'}}>Forgot Password</Text>
+            <Text style={{color: '#FF7622', fontFamily: 'Sen-Regular'}}>
+              Forgot Password
+            </Text>
           </TouchableOpacity>
         </View>
 
@@ -111,12 +116,20 @@ const Signin = () => {
         </TouchableOpacity>
 
         <View style={styles.signUpContainer}>
-          <Text style={{color: '#646982'}}>Don't have an account? </Text>
+          <Text style={{color: '#646982', fontFamily: 'Sen-Regular'}}>
+            Don't have an account?{' '}
+          </Text>
           <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
             <Text style={styles.signUpText}>SIGN UP</Text>
           </TouchableOpacity>
         </View>
-        <Text style={{textAlign: 'center', marginTop: 27, color: '#646982'}}>
+        <Text
+          style={{
+            textAlign: 'center',
+            marginTop: 27,
+            color: '#646982',
+            fontFamily: 'Sen-Regular',
+          }}>
           Or
         </Text>
 
@@ -152,6 +165,7 @@ const Signin = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    fontFamily: 'Sen-Regular',
     // paddingHorizontal: 16,
     justifyContent: 'center',
     backgroundColor: '#FF7622',
@@ -172,6 +186,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     marginBottom: 12,
     backgroundColor: '#F0F5FA',
+    fontFamily: 'Sen-Regular',
   },
   forgotPasswordContainer: {
     alignItems: 'flex-end',
@@ -199,13 +214,14 @@ const styles = StyleSheet.create({
     marginTop: 38,
   },
   signUpText: {
+    fontFamily: 'Sen-Bold',
     color: '#FF7622',
-    fontWeight: 'bold',
   },
   text: {
     color: '#32343E',
-    fontSize: 13,
+    fontSize: 14,
     marginBottom: 8,
+    fontFamily: 'Sen-Regular',
   },
 });
 

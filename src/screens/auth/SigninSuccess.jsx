@@ -30,32 +30,53 @@ const SigninSuccess = () => {
           paddingHorizontal: 27,
           paddingVertical: 37,
         }}>
-        <Text style={{fontSize: 37, color: '#000', fontWeight: 'bold'}}>
+        <Text style={{fontSize: 37, color: '#000', fontFamily: 'Sen-Bold'}}>
           Sign up
         </Text>
-        <Text style={{fontSize: 37, color: '#000', fontWeight: 'bold'}}>
+        <Text style={{fontSize: 37, color: '#000', fontFamily: 'Sen-Bold'}}>
           successful!
         </Text>
-        <Text style={{fontSize: 16, color: '#391713', marginTop: 33}}>
+        <Text
+          style={{
+            fontSize: 16,
+            color: '#391713',
+            marginTop: 33,
+            fontFamily: 'Sen-Regular',
+          }}>
           Sweet success! You're in. Get ready to satisfy your cravings and
           collect some treats.
         </Text>
         <View style={{marginTop: 33, gap: 10}}>
           <View style={{flexDirection: 'row', alignItems: 'center', gap: 10}}>
             <Image source={require('../../assets/image/cup.png')} />
-            <Text style={{fontSize: 16, color: '#391713'}}>
+            <Text
+              style={{
+                fontSize: 16,
+                color: '#391713',
+                fontFamily: 'Sen-Regular',
+              }}>
               Explore nearby cafes and desserts.
             </Text>
           </View>
           <View style={{flexDirection: 'row', alignItems: 'center', gap: 10}}>
             <Image source={require('../../assets/image/card.png')} />
-            <Text style={{fontSize: 16, color: '#391713'}}>
+            <Text
+              style={{
+                fontSize: 16,
+                color: '#391713',
+                fontFamily: 'Sen-Regular',
+              }}>
               Enjoy the loyalty programs.
             </Text>
           </View>
           <View style={{flexDirection: 'row', alignItems: 'center', gap: 10}}>
             <Image source={require('../../assets/image/gift.png')} />
-            <Text style={{fontSize: 16, color: '#391713'}}>
+            <Text
+              style={{
+                fontSize: 16,
+                color: '#391713',
+                fontFamily: 'Sen-Regular',
+              }}>
               Surprise your loved ones.
             </Text>
           </View>
@@ -80,18 +101,18 @@ const SigninSuccess = () => {
 
 const styles = StyleSheet.create({
   loginButton: {
-    paddingVertical: 12,
+    paddingVertical: 14,
     paddingHorizontal: 30,
     backgroundColor: '#FF7622',
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 31,
+    bottom: 10,
   },
   loginButtonText: {
     color: '#FFF',
     fontSize: 20,
-    fontWeight: 'bold',
+    fontFamily: 'Sen-Bold',
   },
 });
 
